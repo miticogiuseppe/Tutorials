@@ -112,11 +112,13 @@ var rcUtils = {
     },
     registerKeyEventListener:function() {
         document.addEventListener('keydown', function(e) {
-            if (handleKeyCode(e.keyCode)) {
+            // Usa e.keyCode o e.which per massima compatibilità
+            var code = e.keyCode || e.which;
+            if (handleKeyCode(code)) {
                 e.preventDefault();
             }
         }, false);
-    }    
+    }   
 };
 
 
